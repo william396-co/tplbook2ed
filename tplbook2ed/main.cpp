@@ -2,11 +2,11 @@
 
 #include "../PartI-TheBasics/Chapter1-FunctionTemplates.h"
 
-#include <cstdio>
+//#include <cstdio>
 
-int main() {
+int main() 
+{
 	std::cout << "C++ Template (second Edition)\n";
-
 
 	func_template_example();
 
