@@ -13,10 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="PartI-TheBasics">
+      <UniqueIdentifier>{25e5b346-32cb-4390-81f2-814b23e0f6fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
