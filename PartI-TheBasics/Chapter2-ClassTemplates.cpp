@@ -1,0 +1,85 @@
+#include "Chapter2-ClassTemplates.h"
+
+#include <string>
+
+namespace ClassTemplate {
+
+
+}
+
+void class_template_example() 
+{
+	std::cout << __PRETTY_FUNCTION__ << "\n";
+	using namespace ClassTemplate;
+
+	{ // 2.3 Partial Usage of Class Templates
+		using namespace V1;
+		std::cout << "2.3 Partial Usage of Class Templates\n";
+		Stack<int> intStack;
+		Stack<std::string> strStack;
+
+		strStack.push("hello");
+		std::cout << strStack.top() << "\n";
+		strStack.pop();
+
+		intStack.push(1);
+		intStack.push(2);
+		std::cout << intStack << "\n";
+		
+	}
+	{  // 2.4 Friends
+		using namespace V1;
+		std::cout << "2.4 Friends\n";
+
+		Stack<std::pair<int, int>> pStack;
+		pStack.push({ 1,2 });
+		pStack.push({ 3,4 });
+		std::cout << pStack << "\n";
+	}
+
+
+	{// 2.5 Specialization of Class Templates
+		std::cout << "2.5 Specialization of Class Templates\n";
+		using namespace V1;
+		Stack<std::string> strStk;
+		strStk.push("good");
+		std::cout << strStk.top() << "\n";
+		strStk.pop();
+	}
+
+	{// 2.6 Partial Specialization
+		using namespace V1;
+		std::cout << "2.6 Partial Specialization\n";
+		Stack<int*> ptrStk;
+		ptrStk.push(new int{ 42 });
+		std::cout << *ptrStk.top() << "\n";
+		delete ptrStk.pop();
+	}
+
+	{// 2.7 Default Class Template Arguments
+		std::cout << "2.7 Default Class Template Arguments\n";
+		using namespace V3;
+		Stack<int> intStk;
+
+		Stack<double, std::deque<double>> dblStk;
+
+		intStk.push(7);
+		std::cout << intStk.top() << "\n";
+		intStk.pop();
+
+		dblStk.push(42.3);
+		std::cout << dblStk.top() << "\n";
+		dblStk.pop();
+	}
+
+	{// 2.8 Type Aliases
+		std::cout << "2.8 Type Aliases\n";
+		using namespace V3;
+		using IntStack = Stack<int>;
+		IntStack istack[10];
+
+		template<typename T>
+		using DequeStack = Stack<T, std::deque<T>>;
+
+	}
+}
