@@ -77,9 +77,19 @@ void class_template_example()
 		using namespace V3;
 		using IntStack = Stack<int>;
 		IntStack istack[10];
+	}
 
-		template<typename T>
-		using DequeStack = Stack<T, std::deque<T>>;
+	{// 2.9 Class Template Argument Deduction
 
+		using namespace V4;
+		Stack<int> intStk1;
+		Stack<int> intStk2 = intStk1;
+#if __cplusplus > 201703L//C++17
+		Stack intStk3 = intStk1;// deduce templater parameter
+
+		Stack intStk = 0;
+#else
+		Stack<int> intStk3 = intStk1;//C++11 C++14
+#endif
 	}
 }

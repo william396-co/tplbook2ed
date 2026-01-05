@@ -176,6 +176,39 @@ namespace ClassTemplate {
 		// Alias Templates
 		template<typename T>
 		using DequeStack = Stack<T, std::deque<T>>;
+
+		// Type Traits Suffix_t
+#if 0
+		namespace std {
+			template<typename T>
+			struct add_const{			
+			};
+			template<typename T>
+			using add_const_t = typename add_const<T>::type;
+		}
+#endif
+	}
+	namespace V4 {
+		template<typename T>
+		class Stack {
+		public:
+			Stack() = default;
+			Stack(T const& elem) :data{ elem } {}//initialize stack with one element
+			void push(T const& elem) {
+				data.push_back(elem);
+			}
+			void pop() {
+				assert(!data.empty());
+				data.pop_back();
+			}
+			T const& top()const {
+				assert(!data.empty());
+				return data.back();
+			}
+			bool empty()const { return data.empty(); }
+		private:
+			std::vector<T> data;
+		};
 	}
 }
 
