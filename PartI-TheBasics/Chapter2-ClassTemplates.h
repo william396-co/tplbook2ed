@@ -188,28 +188,102 @@ namespace ClassTemplate {
 		}
 #endif
 	}
-	namespace V4 {
+	namespace tmpl_Arg_Deduc {
+		namespace Sub_V1 {
+			template<typename T>
+			class Stack {
+			public:
+				Stack() = default;
+				Stack(T const& elem) //initialize stack with one element
+					:data({ elem })
+				{
+				}
+				void push(T const& elem);
+				void pop();
+				T const& top()const;
+				bool empty()const { return data.empty(); }
+			private:
+				std::vector<T> data;
+			};
+		}
+		namespace Sub_V2 {
+			template<typename T>
+			class Stack {
+			public:
+				Stack() = default;
+				Stack(T elem) //initialize stack with one element by value
+					:data({ std::move(elem) }) // to decay an class tmpl arg deduction
+				{
+				}
+				void push(T const& elem);
+				void pop();
+				T const& top()const;
+				bool empty()const { return data.empty(); }
+			private:
+				std::vector<T> data;
+			};
+		}
+		namespace Sub_V3 {// Deduction Guides
+			template<typename T>
+			class Stack {
+			public:
+				Stack() = default;
+				Stack(T elem) //initialize stack with one element by value
+					:data({ std::move(elem) }) // to decay an class tmpl arg deduction
+				{
+				}
+				void push(T const& elem);
+				void pop();
+				T const& top()const;
+				bool empty()const { return data.empty(); }
+			private:
+				std::vector<T> data;
+			};
+			
+			// TODO not correct,need fix
+			Stack(const char*) -> Stack<std::string>;
+		}
+	}
+
+	namespace Templatized_Aggregates
+	{
 		template<typename T>
-		class Stack {
-		public:
-			Stack() = default;
-			Stack(T const& elem) :data{ elem } {}//initialize stack with one element
-			void push(T const& elem) {
-				data.push_back(elem);
-			}
-			void pop() {
-				assert(!data.empty());
-				data.pop_back();
-			}
-			T const& top()const {
-				assert(!data.empty());
-				return data.back();
-			}
-			bool empty()const { return data.empty(); }
-		private:
-			std::vector<T> data;
+		struct ValueWithComment 
+		{
+			T value;
+			std::string comment;
 		};
+
+		// deduction guides
+		ValueWithComment(char const*, char const*)->ValueWithComment<std::string>;
 	}
 }
+
+/*
+* 2.11 Summary
+* 
+* . A class templates is a class that is implemented with one or more type
+*   parameters left open.
+* 
+* . To use a class template, you pass the one types as template arguments. 
+*   The class template is then instantiated(and compiled) for these types.
+* 
+* . For class templates,only those memeber functions that are called are 
+*   instantiated.
+* 
+* . You can specialize class template for certain types.
+* 
+* . You can partially specialize class templates for certain types.
+* 
+* . Since C++17, class template arguments can automatically be deduced from 
+*   constructors.
+* 
+* . You can define aggregate class templates.
+* 
+* . Call parameters of a template type decay if declared to be called by value.
+* 
+* . Templates can only be declared and defined in global/namespace scope 
+*   or inside class declaration.
+*/
 
 void class_template_example();

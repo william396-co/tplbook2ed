@@ -81,15 +81,59 @@ void class_template_example()
 
 	{// 2.9 Class Template Argument Deduction
 
-		using namespace V4;
-		Stack<int> intStk1;
-		Stack<int> intStk2 = intStk1;
+		using namespace tmpl_Arg_Deduc;
+		{
+			using namespace Sub_V1;
+			Stack<int> intStk1;
+			Stack<int> intStk2 = intStk1;
 #if __cplusplus > 201703L//C++17
-		Stack intStk3 = intStk1;// deduce templater parameter
+			Stack intStk3 = intStk1;// deduce templater parameter
 
-		Stack intStk = 0;
+			Stack intStk = 0;
+
+			//Stack strStk = "hello";//Stack<const char[6]> deduced Since C++17
+			Stack strStk2 = std::string("hello");//Stack<std::string> deduced Since C++17			
 #else
-		Stack<int> intStk3 = intStk1;//C++11 C++14
+			Stack<int> intStk3 = intStk1;//C++11 C++14
 #endif
+		}
+		{
+			using namespace Sub_V2;				
+			Stack<int> intStk1;
+			Stack<int> intStk2 = intStk1;
+#if __cplusplus > 201703L//C++17
+			Stack intStk3 = intStk1;// deduce templater parameter
+
+			Stack intStk = 0;
+
+			Stack strStk = "hello";//Stack<const char*> deduced Since C++17
+			Stack strStk2 = std::string("hello");//Stack<std::string> deduced Since C++17
+			
+#else
+			Stack<int> intStk3 = intStk1;//C++11 C++14
+#endif			
+		}
+		{// Deduction Guides
+			using namespace Sub_V3;		
+#if 0
+			Stack strStack{ "bottom" };
+			Stack strStk = "Bottom";
+			//Stack stk2{ strStack };
+			//Stack stk3 = { strStack };
+#endif
+		}
+	}
+
+	{// 2.10 Templatized Aggregates
+
+		using namespace Templatized_Aggregates;
+		ValueWithComment<int> vc;
+		vc.value = 42;
+		vc.comment = "initial value";
+
+		ValueWithComment vc2 = { "hello","initial value" };
+
+		std::cout << vc.value << " " << vc.comment << "\n";
+		std::cout << vc2.value << " " << vc2.comment << "\n";
 	}
 }
