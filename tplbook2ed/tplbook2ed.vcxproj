@@ -134,12 +134,14 @@
     <ClCompile Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter2-ClassTemplates.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter2-ClassTemplates.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

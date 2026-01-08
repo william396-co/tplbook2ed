@@ -30,6 +30,9 @@
     <ClCompile Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.cpp">
       <Filter>PartI-TheBasics</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
@@ -39,6 +42,9 @@
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
     <ClInclude Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.h">
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
   </ItemGroup>
