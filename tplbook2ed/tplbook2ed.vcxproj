@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -132,10 +132,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chapter2-ClassTemplates.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chapter5-TrickyBasics.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chapter2-ClassTemplates.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chapter5-TrickyBasics.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
