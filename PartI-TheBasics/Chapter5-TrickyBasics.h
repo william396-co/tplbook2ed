@@ -2,6 +2,10 @@
 
 #include <iostream>
 #include <deque>
+#include <cassert>
+#include <bitset>
+#include <array>
+#include <type_traits>
 
 namespace Tricky_Basics {
 
@@ -174,8 +178,8 @@ namespace Tricky_Basics {
 		}
 	}
 
-	// 5.5 Memeber Templates
-	namespace memeber_templates 
+	// 5.5 Member Templates
+	namespace member_templates 
 	{
 		template<typename T>
 		class Stack {
@@ -193,9 +197,22 @@ namespace Tricky_Basics {
 			}
 			bool empty()const { return elems.empty(); }
 
+			// need define default constructor
+			Stack() = default;
 			// assign stack of elements of type U
 			template<typename U>
 			Stack& operator=(Stack<U> const& other);
+
+			template<typename U>
+			Stack(Stack<U> const& other) {
+				elems.clear();
+				elems.insert(elems.begin(),
+					other.elems.begin(),
+					other.elems.end());
+			}
+
+			// to get access private member of Stack<U> for any type U:
+			template<typename>friend class Stack;
 		private:
 			std::deque<T> elems;
 		};
@@ -204,15 +221,94 @@ namespace Tricky_Basics {
 		template<typename U>
 		inline Stack<T>& Stack<T>::operator=(Stack<U> const& other)
 		{
-			Stack<U> tmp(other);
+#if 0
+			elems.clear();
 			while (!tmp.empty()) {
 				elems.push_front(tmp.top());
 				tmp.pop();
 			}
+#else
+			Stack<U> tmp(other);
+			elems.clear();
+			elems.insert(elems.begin(),
+				other.elems.begin(),
+				other.elems.end());
+#endif
 			return *this;
 		}
-	}
 
+		namespace Specialization_member_fun_templates {
+
+			class BoolString {
+			public:
+				BoolString(std::string const& s) :value{ s } {}
+
+				template<typename T = std::string>
+				T getValue()const { return value; }// get value(convert to T)
+			private:
+				std::string value;
+			};
+
+			// full specialization for BoolString::getValue<>() for bool
+			template<>
+			inline bool BoolString::getValue<bool>()const {
+				return value == "true" || value == "1" || value == "on";
+			}
+		}
+
+		// 5.5.1 The .template Construct
+		namespace dot_template_construct
+		{
+			template<unsigned long N>
+			void printBitset(std::bitset<N> const& bs) {
+				std::cout << bs.template to_string<char, std::char_traits<char>, std::allocator<char>>();
+				std::cout << "\n";
+			}
+		}
+		// 5.5.2 Generic Lambdas and Member Templates
+		namespace generic_lambda_memeber_templates
+		{
+			auto sum_lambda = [](auto x, auto y) {
+				return x + y;
+				};
+
+			class Sum {
+			public:
+				template<typename T1, typename T2>
+				auto operator()(T1 x, T2 y)const {
+					return x + y;
+				}
+			};
+		}
+	}
+	// 5.6 Variable Templates
+	namespace variable_templates
+	{
+		template<typename T = long double>
+		constexpr T pi{3.1415926535897932385};
+
+		template<int N>
+		std::array<int, N> arr{};// array with N elements,zero-initialized
+
+		template<auto N>
+		constexpr decltype(N) dval = N;// type of dvalue depends on passed value
+
+		// Variable Templates for Data Members
+		template<typename T>
+		class MyClass {
+		public:
+			static constexpr int max = 1000;
+		};
+
+		template<typename T>
+		int myMax = MyClass<T>::max;
+
+		// Type Traits Suffix _v 
+		namespace mystd {
+			template<typename T>
+			constexpr bool is_const_v = std::is_const<T>::value;// Since C++17
+		}
+	}
 } 
 
 void tricky_basics_example();
