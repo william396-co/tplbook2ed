@@ -183,7 +183,7 @@ namespace MoveSemantics_EnableIf
 *   or assignment operator templates that can be called for single argument are
 *   a better match than implicity generated specail member functions.
 * 
-* . You can templify(and apply enable<>) to special member functions by deleting
+* . You can templify(and apply enable_if<>) to special member functions by deleting
 *   the predefined special member functions for const volatile.
 * 
 * . Concepts will allow us to use a more intuitive syntax for requirements on 

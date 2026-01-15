@@ -6,6 +6,7 @@
 #include "../PartI-TheBasics/Chapter4-VariadicTemplates.h"
 #include "../PartI-TheBasics/Chapter5-TrickyBasics.h"
 #include "../PartI-TheBasics/Chapter6-MoveSemantic_EnableIf.h"
+#include "../PartI-TheBasics/Chapter7-ByValueByRef.h"
 
 //#include <cstdio>
 
@@ -18,7 +19,8 @@ int main()
 	//nontype_template_param_example();
 	//variadic_template_example();
 	//tricky_basics_example();
-	move_semantic_enable_if_example();
+	//move_semantic_enable_if_example();
+	by_value_or_by_ref_example();
 
 	return 0;
 }
