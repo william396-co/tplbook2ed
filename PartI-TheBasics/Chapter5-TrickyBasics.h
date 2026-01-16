@@ -6,6 +6,7 @@
 #include <bitset>
 #include <array>
 #include <type_traits>
+#include <memory>
 
 namespace Tricky_Basics {
 
@@ -285,7 +286,7 @@ namespace Tricky_Basics {
 	namespace variable_templates
 	{
 		template<typename T = long double>
-		constexpr T pi{3.1415926535897932385};
+		constexpr T pi{ 3.1415926535897932385 };
 
 		template<int N>
 		std::array<int, N> arr{};// array with N elements,zero-initialized
@@ -309,6 +310,132 @@ namespace Tricky_Basics {
 			constexpr bool is_const_v = std::is_const<T>::value;// Since C++17
 		}
 	}
+	// 5.7 Template Template Parameters
+	namespace template_template_param
+	{
+#if 0
+		template<typename T,
+#if __cplusplus > 201103
+			template<typename Elem> class Cont = std::deque >
+#else
+			template<typename Elem> typename Cont = std::deque > // ERROR beforec C++17
+#endif
+		class Stack {
+		public:
+			void push(T const& elem);
+			void pop();
+			T const& top()const;
+			bool empty()const { return elems.empty(); }
+		private:
+			Cont<T> elems;
+		};
+
+		template<typename T,
+			template<typename> class Cont>
+		void Stack<T, Cont>::push(T const& elem) {
+			elems.push_back(elem);
+		}
+		template<typename T,
+			template<typename> class Cont>
+		void Stack<T, Cont>::pop() {
+			assert(!elems.empty());
+			elems.pop_back();
+		}
+		template<typename T,
+			template<typename> class Cont>
+		T const& Stack<T, Cont>::top()const {
+			assert(!elems.empty());
+			return elems.back();
+		}
+#else
+		template<typename T,
+			template<typename Elem,typename = std::allocator<Elem>>
+					class Cont = std::deque>
+		class Stack {
+			// to get access to private members of any stack with elements of type U
+			template<typename,template<typename,typename>class>
+			friend class Stack;
+		public:
+			// assign stack of elements of type U
+			template<typename U,
+					template<typename Elem2, typename = std::allocator<Elem2>>
+						class Cont2>
+			Stack<T, Cont>& operator=(Stack<U, Cont2> const& other);						
+		public:
+			void push(T const& elem);
+			void pop();
+			T const& top()const;
+			bool empty()const { return elems.empty(); }
+		private:
+			Cont<T> elems;
+		};
+
+		template<typename T,
+			template<typename, typename > class Cont>
+		void Stack<T, Cont>::push(T const& elem) {
+			elems.push_back(elem);
+		}
+
+		template<typename T,
+			template<typename, typename > class Cont>
+		void Stack<T, Cont>::pop() {
+			assert(!elems.empty());
+			elems.pop_back();
+		}
+
+		template<typename T,
+			template<typename, typename > class Cont>
+		T const& Stack<T, Cont>::top()const {
+			assert(!elems.empty());
+			return elems.back();
+		}
+
+		template<typename T,
+			template<typename, typename > class Cont>
+
+		template<typename U,
+			template<typename, typename > class Cont2>
+		Stack<T, Cont>& Stack<T, Cont>::operator=(Stack<U, Cont2>const& other) 
+		{
+			elems.clear();
+			elems.insert(elems.begin(),
+				other.elems.begin(),
+				other.elems.end());
+			return *this;
+		}
+#endif
+	}
 } 
 
+/*
+*  5.8 Summary
+* 
+* . To access a type name that depends on a template parameter,you have to qualify
+*   the name with a leading typename.
+* 
+* . To access members of base classes that depend on template parameters, you have 
+*   to qualify the acces by this-> or their class name.
+* 
+* . Nested classes and member functions can also be template, One application is the
+*   ability to implement generic operations with internal type conversions.
+* 
+* .Template version of constructors or assignment operators don't replace predefined
+*  constructors or assignment operators.
+* 
+* . By using brace initialization or explicitly calling a default constructor, you can 
+*   ensure that virable and member of templates are initialized with a default value 
+*   even if they instantiated with a built-in type.
+* 
+* . You can provide specific template for raw arrays, which can also be applicable to 
+*   string literals. when passing raw array or string literals, arguments decay(perform
+*   an array-to-pointer coversion) during argument deduction if and only if the parameter
+*   is not a reference.
+* 
+* . You can define variable templates(Since C++14)
+* 
+* . You can also use class templates as template parameters, as template template parameters.
+* 
+* . Template template argument must usually match their parameter exactly.
+* 
+*/
 void tricky_basics_example();
