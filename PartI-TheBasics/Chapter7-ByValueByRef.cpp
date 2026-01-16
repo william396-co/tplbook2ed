@@ -143,6 +143,19 @@ void by_value_or_by_ref_example() {
 		auto ps = new std::string("whatever");
 		auto& c = (*ps)[0];
 		delete ps;
-		std::cout << c << "\n";
+		std::cout << c << "\n";// run-time ERROR
+
+		auto ss = std::make_shared<std::string>("whatever");
+		auto& c2 = (*ss)[0];
+		ss.reset();
+		std::cout << c2 << "\n";// run-time ERROR
+
+#if 0
+		std::string s;
+		auto retS = retR(s);//return is string&
+
+		int x;
+		auto retX = retV<int&>(x); // retT() instantiated for T as int&
+#endif
 	}
 }

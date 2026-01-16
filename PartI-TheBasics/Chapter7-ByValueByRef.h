@@ -150,8 +150,42 @@ namespace by_value_or_by_ref {
 		}
 	}
 	// 7.5 Dealing with Return Value
-	namespace dealing_ret_val 
+	namespace dealing_ret_val
 	{
+#if 0
+		template<typename T>
+		T retR(T&& p) {// p is forwarding reference
+			return T{};//OOPS: returns by reference when called for lvalues
+		}
+
+		template<typename T>
+		T retV(T p) {//Note: p might become a reference
+			return T{};//OOPS: returns a reference if T is a reference
+		}
+
+		// use std::remove_reference<>
+		template<typename T>
+		typename std::remove_reference_t<T> retV{
+			return T{};// always return by value
+		}
+			// other traits, such as std::decay<>
+			// use auto , becuase auto always decays		
+
+			template<typename T>
+		auto retV(T p) {
+			return T{};// always return by value
+		}
+#endif
+	}
+
+	// 7.6 Recommanded Template Parameter Declaration
+	namespace recommand_template_param_decl
+	{
+		/*
+		* . Declare to pass the arguments by value:
+		*   This approach is simple,it decays string literals and raw arrays, but it
+		*   doesn't provide best performance for large objects,
+		*/
 
 	}
 }
