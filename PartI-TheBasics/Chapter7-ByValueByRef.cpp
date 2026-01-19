@@ -158,4 +158,9 @@ void by_value_or_by_ref_example() {
 		auto retX = retV<int&>(x); // retT() instantiated for T as int&
 #endif
 	}
+	{// 7.6 Recommanded Template Parameter Declaration
+		using namespace recommand_template_param_decl;
+		printVec<int>({ 1,2,3 });
+
+	}
 }

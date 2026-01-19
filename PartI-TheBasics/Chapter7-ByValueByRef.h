@@ -4,6 +4,8 @@
 #include <string>
 #include <type_traits>
 #include <cassert>
+#include <vector>
+#include <algorithm>
 
 namespace by_value_or_by_ref {
 
@@ -183,11 +185,60 @@ namespace by_value_or_by_ref {
 	{
 		/*
 		* . Declare to pass the arguments by value:
-		*   This approach is simple,it decays string literals and raw arrays, but it
-		*   doesn't provide best performance for large objects,
+		*     This approach is simple,it decays string literals and raw arrays, but it
+		*     doesn't provide best performance for large objects,still the caller can 
+		*     decide to pass by reference using std::cref() and std::ref(), but the 
+		*     caller must be careful that doing so is valid
+		* 
+		* . Declare to pass the argument by-reference
+		*    This approach often provides better performance for somewhat large objects,
+		*    especially when passing
+		*   - existing objects(lvalues) to lvalue reference
+		*   - temporary objects(prvalues) or object marked as movable(xvalue) to rvalue 
+		*     references
+		*   - or both to forwarding reference
+		*  
 		*/
 
+		/*
+		*   Don't Be Over-Generic
+		*/
+		template<typename T>
+		void printVec(std::vector<T> const& v) {
+			for (auto const& i : v) {
+				std::cout << i << "\t";
+			}
+			std::cout << "\n";
+		}
 	}
 }
+
+/*
+*   7.7 Summary
+* 
+* . When testing templates, use string literals of different length.
+* 
+* . Template parameters passed by value decay, while passing them by 
+*   reference does not decay.
+* 
+* . The type trait std::decay<> allow you to decay parameters in templates
+*   by reference.
+* 
+* . In some cases std::cref() and std::ref() allow you to pass argument
+*   by reference when function template declare them to be passed by value.
+* 
+* . Passing template parameter by value is simple but may not result in 
+*   the best performance.
+* 
+* . Pass parameter to function templates by value unless there are good
+*   reason to do otherwise.
+* 
+* . Ensure that return values are usually passed by value(while might mean
+*   that a template parameter can't be specified directly as a return type)
+* 
+* . Always measure performance when it is important, Do not rely intuition;
+*   it's probably wrong.
+*   
+*/
 
 void by_value_or_by_ref_example();
