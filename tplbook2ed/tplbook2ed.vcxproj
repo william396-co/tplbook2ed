@@ -138,6 +138,7 @@
     <ClCompile Include="..\PartI-TheBasics\Chapter5-TrickyBasics.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter6-MoveSemantic_EnableIf.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter7-ByValueByRef.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chpater8-CompileTimeProgramming.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,8 +147,7 @@
     <ClInclude Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter5-TrickyBasics.h" />
-    <ClInclude Include="..\PartI-TheBasics\Chapter6-MoveSemantic_EnableIf.h" />
-    <ClInclude Include="..\PartI-TheBasics\Chapter7-ByValueByRef.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chpater8-CompileTimeProgramming.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

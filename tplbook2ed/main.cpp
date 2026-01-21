@@ -7,6 +7,7 @@
 #include "../PartI-TheBasics/Chapter5-TrickyBasics.h"
 #include "../PartI-TheBasics/Chapter6-MoveSemantic_EnableIf.h"
 #include "../PartI-TheBasics/Chapter7-ByValueByRef.h"
+#include "../PartI-TheBasics/Chpater8-CompileTimeProgramming.h"
 
 //#include <cstdio>
 
@@ -14,13 +15,16 @@ int main()
 {
 	std::cout << "C++ Template (second Edition)\n";
 
-	//func_template_example();
-	//class_template_example();
-	//nontype_template_param_example();
-	//variadic_template_example();
-	//tricky_basics_example();
-	//move_semantic_enable_if_example();
+#if 0
+	func_template_example();
+	class_template_example();
+	nontype_template_param_example();
+	variadic_template_example();
+	tricky_basics_example();
+	move_semantic_enable_if_example();
 	by_value_or_by_ref_example();
+#endif
+	compile_time_programming_example();
 
 	return 0;
 }
