@@ -9,6 +9,7 @@
 #include "../PartI-TheBasics/Chapter7-ByValueByRef.h"
 #include "../PartI-TheBasics/Chpater8-CompileTimeProgramming.h"
 #include "../PartI-TheBasics/Chapter9-UsingTemplatesInPractice.h"
+#include "../PartI-TheBasics/Chapter10-BasicTemplateTerminology.h"
 
 //#include <cstdio>
 
@@ -25,8 +26,9 @@ int main()
 	move_semantic_enable_if_example();
 	by_value_or_by_ref_example();
 	compile_time_programming_example();
-#else
 	using_templates_in_pratice_example();
+#else
+	basic_template_terminology_example();
 #endif
 
 	return 0;
