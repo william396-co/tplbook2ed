@@ -8,6 +8,7 @@
 #include "../PartI-TheBasics/Chapter6-MoveSemantic_EnableIf.h"
 #include "../PartI-TheBasics/Chapter7-ByValueByRef.h"
 #include "../PartI-TheBasics/Chpater8-CompileTimeProgramming.h"
+#include "../PartI-TheBasics/Chapter9-UsingTemplatesInPractice.h"
 
 //#include <cstdio>
 
@@ -23,8 +24,10 @@ int main()
 	tricky_basics_example();
 	move_semantic_enable_if_example();
 	by_value_or_by_ref_example();
-#endif
 	compile_time_programming_example();
+#else
+	using_templates_in_pratice_example();
+#endif
 
 	return 0;
 }

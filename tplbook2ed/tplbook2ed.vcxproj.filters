@@ -45,6 +45,12 @@
     <ClCompile Include="..\PartI-TheBasics\Chpater8-CompileTimeProgramming.cpp">
       <Filter>PartI-TheBasics</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter9-UsingTemplatesInPractice.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter9-Impl.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
@@ -63,6 +69,9 @@
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
     <ClInclude Include="..\PartI-TheBasics\Chpater8-CompileTimeProgramming.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter9-UsingTemplatesInPractice.h">
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
   </ItemGroup>
