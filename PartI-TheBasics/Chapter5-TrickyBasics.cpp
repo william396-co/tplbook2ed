@@ -45,6 +45,7 @@ void tricky_basics_example() {
 
 		std::cout << "=====================\n";
 		foo(a, a, a, x, x, x, x);
+
 	}
 	{// 5.5 Member Templates
 		using namespace member_templates;

@@ -54,6 +54,9 @@
     <ClCompile Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.cpp">
       <Filter>PartI-TheBasics</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter11-GenericLibraries.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
@@ -78,6 +81,9 @@
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
     <ClInclude Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter11-GenericLibraries.h">
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
   </ItemGroup>

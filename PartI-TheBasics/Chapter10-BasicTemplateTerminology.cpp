@@ -15,6 +15,10 @@ namespace Basic_template_terminology {
 
 		int w;// global variable declarations not preceded by
 		     // extern are also definitions
+
+		namespace ccomplete_vs_incomplete {
+			int arr[10];// arr now has a complete type
+		}
 	}
 }
 

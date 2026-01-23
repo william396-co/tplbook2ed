@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.cpp" />
+    <ClCompile Include="..\PartI-TheBasics\Chapter11-GenericLibraries.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter2-ClassTemplates.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.h" />
+    <ClInclude Include="..\PartI-TheBasics\Chapter11-GenericLibraries.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter2-ClassTemplates.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter3-NontypeTemplateParameters.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter4-VariadicTemplates.h" />

@@ -10,6 +10,7 @@
 #include "../PartI-TheBasics/Chpater8-CompileTimeProgramming.h"
 #include "../PartI-TheBasics/Chapter9-UsingTemplatesInPractice.h"
 #include "../PartI-TheBasics/Chapter10-BasicTemplateTerminology.h"
+#include "../PartI-TheBasics/Chapter11-GenericLibraries.h"
 
 //#include <cstdio>
 
@@ -27,8 +28,9 @@ int main()
 	by_value_or_by_ref_example();
 	compile_time_programming_example();
 	using_templates_in_pratice_example();
-#else
 	basic_template_terminology_example();
+#else
+	generic_lib_example();
 #endif
 
 	return 0;

@@ -57,14 +57,16 @@ namespace Basic_template_terminology
 			*  . Any type above to which const/and or volatile are applied.			
 			* 
 			*/
-			class C;//C is an incomplete type
-			C const* cp;// cp is a pointer to an incomplete type
-			extern C elems[10];// elems has an incomplete type
+			class CX;//CX is an incomplete type
+#if 0
+			CX const* cp;// cp is a pointer to an incomplete type
+#endif
+			extern CX elems[10];// elems has an incomplete type
 			extern int arr[];// arr has an incomplete type
 
-			class C {};// CX now is a complete type(and therefore cp and elemes)
+			class CX {};// CX now is a complete type(and therefore cp and elemes)
 			          // no longer refer to incomplete type
-			int arr[10];// arr now has a complete type
+		
 		}
 	}
 	// 10.4 The One-Defintion Rule
