@@ -12,6 +12,8 @@
 #include "../PartI-TheBasics/Chapter10-BasicTemplateTerminology.h"
 #include "../PartI-TheBasics/Chapter11-GenericLibraries.h"
 
+#include "../PartII-TemplatesInDepth/Chapter12-FundamentalsInDepth.h"
+
 //#include <cstdio>
 
 int main() 
@@ -29,8 +31,9 @@ int main()
 	compile_time_programming_example();
 	using_templates_in_pratice_example();
 	basic_template_terminology_example();
-#else
 	generic_lib_example();
+#else
+	fundamental_in_depth_example();
 #endif
 
 	return 0;
