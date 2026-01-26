@@ -16,6 +16,9 @@
     <Filter Include="PartI-TheBasics">
       <UniqueIdentifier>{25e5b346-32cb-4390-81f2-814b23e0f6fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PartII-TemplatesInDepth">
+      <UniqueIdentifier>{d20f483b-276a-467b-ad19-616a52ddb794}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,30 @@
     <ClCompile Include="..\PartI-TheBasics\Chapter5-TrickyBasics.cpp">
       <Filter>PartI-TheBasics</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter6-MoveSemantic_EnableIf.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter7-ByValueByRef.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chpater8-CompileTimeProgramming.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter9-UsingTemplatesInPractice.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter9-Impl.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartI-TheBasics\Chapter11-GenericLibraries.cpp">
+      <Filter>PartI-TheBasics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartII-TemplatesInDepth\Chapter12-FundamentalsInDepth.cpp">
+      <Filter>PartII-TemplatesInDepth</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
@@ -52,6 +79,21 @@
     </ClInclude>
     <ClInclude Include="..\PartI-TheBasics\Chapter5-TrickyBasics.h">
       <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chpater8-CompileTimeProgramming.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter9-UsingTemplatesInPractice.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter11-GenericLibraries.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartII-TemplatesInDepth\Chapter12-FundamentalsInDepth.h">
+      <Filter>PartII-TemplatesInDepth</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
