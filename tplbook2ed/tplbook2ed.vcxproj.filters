@@ -95,5 +95,11 @@
     <ClInclude Include="..\PartII-TemplatesInDepth\Chapter12-FundamentalsInDepth.h">
       <Filter>PartII-TemplatesInDepth</Filter>
     </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter6-MoveSemantic_EnableIf.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartI-TheBasics\Chapter7-ByValueByRef.h">
+      <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
