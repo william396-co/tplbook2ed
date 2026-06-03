@@ -14,6 +14,8 @@
 
 #include "../PartII-TemplatesInDepth/Chapter12-FundamentalsInDepth.h"
 
+#include "../PartIII-TemplatesAndDesign/Chapter18-ThePolymorphicPowerOfTemplates.h"
+
 //#include <cstdio>
 
 int main() 
@@ -21,6 +23,7 @@ int main()
 	std::cout << "C++ Template (second Edition)\n";
 
 #if 0
+	// PartI
 	func_template_example();
 	class_template_example();
 	nontype_template_param_example();
@@ -32,8 +35,11 @@ int main()
 	using_templates_in_pratice_example();
 	basic_template_terminology_example();
 	generic_lib_example();
-#else
+	// PartII
 	fundamental_in_depth_example();
+	// PartIII
+#else
+	polymorphic_power_of_templates_example();
 #endif
 
 	return 0;
