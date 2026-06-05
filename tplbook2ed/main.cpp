@@ -15,6 +15,7 @@
 #include "../PartII-TemplatesInDepth/Chapter12-FundamentalsInDepth.h"
 
 #include "../PartIII-TemplatesAndDesign/Chapter18-ThePolymorphicPowerOfTemplates.h"
+#include "../PartIII-TemplatesAndDesign/Chpater19-ImplementingTraits.h"
 
 //#include <cstdio>
 
@@ -38,8 +39,9 @@ int main()
 	// PartII
 	fundamental_in_depth_example();
 	// PartIII
-#else
 	polymorphic_power_of_templates_example();
+#else
+	implementing_traits_example();
 #endif
 
 	return 0;

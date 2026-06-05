@@ -69,6 +69,9 @@
     <ClCompile Include="..\PartIII-TemplatesAndDesign\Chapter18-ThePolymorphicPowerOfTemplates.cpp">
       <Filter>PartIII-TemplatesAndDesign</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartIII-TemplatesAndDesign\Chpater19-ImplementingTraits.cpp">
+      <Filter>PartIII-TemplatesAndDesign</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
@@ -108,6 +111,9 @@
       <Filter>PartI-TheBasics</Filter>
     </ClInclude>
     <ClInclude Include="..\PartIII-TemplatesAndDesign\Chapter18-ThePolymorphicPowerOfTemplates.h">
+      <Filter>PartIII-TemplatesAndDesign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartIII-TemplatesAndDesign\Chpater19-ImplementingTraits.h">
       <Filter>PartIII-TemplatesAndDesign</Filter>
     </ClInclude>
   </ItemGroup>
