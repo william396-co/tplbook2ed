@@ -7,6 +7,12 @@
 #include <typeinfo>
 #include <type_traits>
 #include <ranges>
+#include <cctype>
+#include <regex>
+#include <fstream>
+#include <cstring>
+#include <string>
+#include <string_view>
 
 namespace implementing_traits {
 
@@ -564,6 +570,62 @@ namespace implementing_traits {
 		return v * v;
 	}
 
+	}
+	// Library Overview
+	namespace lib_overview {
+
+	}
+	//String and Regular Expression
+	namespace str_regular_exp {
+
+		inline std::string cat_str(std::string_view sv1, std::string_view sv2) {
+			std::string res(sv1);
+			return res += sv2;
+		}
+
+		inline void print_lower(std::string_view sv) {
+			for (auto const& c : sv) {
+				std::cout << static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+			}
+		}
+
+		// regular expression sample
+		inline void use() {
+
+			std::ifstream in("file.txt");
+			if (!in) {
+				std::cerr << "no file\n";
+				return;
+			}
+
+			std::regex pat{ R"(\w{2}\s*\d{5}(-\d{4})?)" };
+
+			int lineno = 0;
+			for (std::string line; std::getline(in, line);) {
+				++lineno;
+				std::smatch matches;
+				if (std::regex_search(line, matches, pat)) {
+					std::cout << lineno << ": " << matches[0] << "\n";
+					if (1 < matches.size() && matches[1].matched) {
+						std::cout << "\t" << matches[1] << "\n";
+					}
+				}
+			}
+
+		}
+
+		inline bool is_identifier(std::string const& s) {
+			std::regex pat{"[_[:alpha:]]\\w*"};
+			return std::regex_match(s, pat);
+		}
+		inline void test() {
+			std::string input = "aa as; asd+ee^asdf asdfg";
+			std::regex pat{R"(\s+(\w+))"};
+			for (std::sregex_iterator p(input.begin(), input.end(), pat); p != std::sregex_iterator{};++p) {
+				std::cout << (*p)[1] << "\n";
+			}
+
+		}
 	}
 }
 

@@ -1,6 +1,7 @@
 #include "Chpater19-ImplementingTraits.h"
 
 #include <complex>
+#include <ranges>
 
 
 namespace implementing_traits {
@@ -199,6 +200,66 @@ void implementing_traits_example() {
 		std::cout << total << "\n";
 
 		auto xxx = foo(3);
+	}
+	// Library Overview
+	{
 
+	}
+	// String and Regular Expression
+	{
+		using namespace str_regular_exp;
+		auto const ints = { 0, 1, 2, 3, 4, 5 };
+		auto even = [](int i) { return 0 == i % 2; };
+		auto square = [](int i) { return i * i; };
+
+#if 1
+		// the "pipe" syntax of composing the views:
+		for (int i : ints | std::views::filter(even) | std::views::transform(square))
+			std::cout << i << ' ';
+
+		std::cout << '\n';
+#else
+
+		// a traditional "functional" composing syntax:
+		for (int i : std::views::transform(std::views::filter(ints, even), square))
+			std::cout << i << ' ';
+#endif
+		using namespace std::literals::string_literals;
+		auto cat = "Cat"s;// a std::string
+		auto dog = "Dog";//a C-style string: const char*
+
+		using namespace std::literals::string_view_literals;
+
+		auto s1 = cat_str(cat, dog);
+		auto s2 = cat_str(cat, "william");
+		auto s3 = cat_str(cat, cat);
+		auto s4 = cat_str("Edward", "Stephen"sv);
+		auto s5 = cat_str("Canute"sv, cat);
+		auto s6 = cat_str({ &cat[0],2 }, "Henry"sv);
+		auto s7 = cat_str({ &cat[0],2 }, { &cat[1],4 });
+
+		std::cout << s1 << ", "
+			<< s2 << ", "
+			<< s3 << ", "
+			<< s4 << ", "
+			<< s5 << ", "
+			<< s6 << ", "
+			<< s7 << "\n";
+
+		print_lower("HelloWord");
+
+
+		// raw string literarls start with R"( and terminated by ")"
+		std::regex pat{ R"(\w{2}\s*\d{5}(-\d{4})?)" };// U.S postal code pattern: XXdddd-dddd and variants
+
+		std::regex pat2{ "\\w{2}\\s*\\d{5}(-\\d{4})?" };// same as before
+
+
+		use();
+
+		std::string s = "2332";
+		std::cout << std::boolalpha << "[" << s << "] is " << is_identifier(s) << "\n";
+
+		test();
 	}
 }	

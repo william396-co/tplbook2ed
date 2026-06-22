@@ -29,6 +29,7 @@ add_executable(tplbook2ed
     PartI-TheBasics/Chapter9-Impl.cpp
     PartII-TemplatesInDepth/Chapter12-FundamentalsInDepth.cpp
     PartIII-TemplatesAndDesign/Chapter18-ThePolymorphicPowerOfTemplates.cpp
+    PartIII-TemplatesAndDesign/Chpater19-ImplementingTraits.cpp
     PartI-TheBasics/Chapter1-FunctionTemplates.h
     PartI-TheBasics/Chapter10-BasicTemplateTerminology.h
     PartI-TheBasics/Chapter11-GenericLibraries.h
@@ -42,6 +43,7 @@ add_executable(tplbook2ed
     PartI-TheBasics/Chpater8-CompileTimeProgramming.h
     PartII-TemplatesInDepth/Chapter12-FundamentalsInDepth.h
     PartIII-TemplatesAndDesign/Chapter18-ThePolymorphicPowerOfTemplates.h
+    PartIII-TemplatesAndDesign/Chpater19-ImplementingTraits.h
 )
 
 target_compile_features(tplbook2ed PRIVATE cxx_std_20)

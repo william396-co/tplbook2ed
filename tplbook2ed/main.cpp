@@ -44,5 +44,7 @@ int main()
 	implementing_traits_example();
 #endif
 
+	getchar();
+
 	return 0;
 }
