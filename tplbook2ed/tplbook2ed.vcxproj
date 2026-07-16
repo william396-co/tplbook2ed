@@ -44,6 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>ClangCL</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>true</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -131,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ATourOfC++\aTourOfCpp.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.cpp" />
     <ClCompile Include="..\PartI-TheBasics\Chapter11-GenericLibraries.cpp" />
@@ -149,6 +151,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ATourOfC++\aTourOfCpp.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter10-BasicTemplateTerminology.h" />
     <ClInclude Include="..\PartI-TheBasics\Chapter11-GenericLibraries.h" />

@@ -17,6 +17,8 @@
 #include "../PartIII-TemplatesAndDesign/Chapter18-ThePolymorphicPowerOfTemplates.h"
 #include "../PartIII-TemplatesAndDesign/Chpater19-ImplementingTraits.h"
 
+#include "../ATourOfC++/aTourOfCpp.h"
+
 //#include <cstdio>
 
 int main() 
@@ -40,8 +42,9 @@ int main()
 	fundamental_in_depth_example();
 	// PartIII
 	polymorphic_power_of_templates_example();
-#else
 	implementing_traits_example();
+#else
+	a_tour_of_cpp_example();
 #endif
 
 	getchar();
