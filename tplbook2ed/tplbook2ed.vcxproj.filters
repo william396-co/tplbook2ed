@@ -19,6 +19,12 @@
     <Filter Include="PartII-TemplatesInDepth">
       <UniqueIdentifier>{d20f483b-276a-467b-ad19-616a52ddb794}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PartIII-TemplatesAndDesign">
+      <UniqueIdentifier>{72dea1c3-5cff-46a6-af92-89806d80f9d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ATourOfC++">
+      <UniqueIdentifier>{4c7935a6-26d0-4676-a53b-ff4f68d90993}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +69,15 @@
     <ClCompile Include="..\PartII-TemplatesInDepth\Chapter12-FundamentalsInDepth.cpp">
       <Filter>PartII-TemplatesInDepth</Filter>
     </ClCompile>
+    <ClCompile Include="..\PartIII-TemplatesAndDesign\Chapter18-ThePolymorphicPowerOfTemplates.cpp">
+      <Filter>PartIII-TemplatesAndDesign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartIII-TemplatesAndDesign\Chpater19-ImplementingTraits.cpp">
+      <Filter>PartIII-TemplatesAndDesign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ATourOfC++\aTourOfCpp.cpp">
+      <Filter>ATourOfC++</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PartI-TheBasics\Chapter1-FunctionTemplates.h">
@@ -100,6 +115,15 @@
     </ClInclude>
     <ClInclude Include="..\PartI-TheBasics\Chapter7-ByValueByRef.h">
       <Filter>PartI-TheBasics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartIII-TemplatesAndDesign\Chapter18-ThePolymorphicPowerOfTemplates.h">
+      <Filter>PartIII-TemplatesAndDesign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartIII-TemplatesAndDesign\Chpater19-ImplementingTraits.h">
+      <Filter>PartIII-TemplatesAndDesign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ATourOfC++\aTourOfCpp.h">
+      <Filter>ATourOfC++</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
